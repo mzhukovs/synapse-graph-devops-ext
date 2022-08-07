@@ -1,0 +1,36 @@
+{
+    "manifestVersion": 1,
+    "id": "synapse-graph-extension",
+    "name": "Synapse Graph",
+    "version": "0.1.7",
+    "publisher": "mark-zhukovsky",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "Tools for building/releasing with Azure Synapse. Includes one pipeline task.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/synapse_graph_128.png"
+    },
+    "files": [
+        {
+            "path": "synapse_graph_task"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "synapse-graph-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "synapse_graph_task"
+            }
+        }
+    ]
+}

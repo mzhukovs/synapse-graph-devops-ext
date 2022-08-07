@@ -1,0 +1,9 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./"
+    },
+    "files": [
+        "synapse_graph_task.ts"
+    ]
+  }

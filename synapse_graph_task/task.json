@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "13ee48a4-2714-4a68-abd5-64e07fa5781c",
+    "name": "synapse-graph-task",
+    "friendlyName": "Synapse Dependency Graph",
+    "description": "Creates a markdown friendly dependency graph for your Synapse workspace using a mermaid flowchart.",
+    "helpMarkDown": "[Learn more about this task](https://www.TODO.com)",
+    "category": "Utility",
+    "visibility": [
+        "Build",
+        "Release"
+    ],
+    "author": "Mark Zhukovsky",
+    "version": {
+        "Major": 0,
+        "Minor": 5,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Synapse Graph: $(workspace)",
+    "inputs": [
+        {
+            "name": "workspace",
+            "type": "string",
+            "label": "Azure Synapse Workspace Name",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The name of the Azure Synapse workspace to generate a dependency graph for."
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "synapse_graph_task.js"
+        }
+    }
+}
