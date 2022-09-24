@@ -1,6 +1,6 @@
 {
   "name": "synapse_graph_task",
-  "version": "1.0.0",
+  "version": "0.90.0",
   "description": "Synapse Dependency Graph Azure DevOps Task",
   "main": "synapse_graph_task.js",
   "scripts": {
@@ -9,15 +9,17 @@
   "keywords": [],
   "author": "Mark Zhukovsky",
   "license": "ISC",
-  "homepage": "https://github.com/Microsoft/azure-pipelines-tasks",
+  "homepage": "https://github.com/mzhukovs/synapse-graph-devops-ext",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Microsoft/azure-pipelines-tasks.git"
+    "url": "git+https://github.com/mzhukovs/synapse-graph-devops-ext.git"
   },
   "bugs": {
-    "url": "https://github.com/Microsoft/azure-pipelines-tasks/issues"
+    "url": "https://github.com/mzhukovs/synapse-graph-devops-ext/issues"
   },
   "dependencies": {
-    "azure-pipelines-task-lib": "4.0.0-preview"
+    "@types/node": "^18.6.5",
+    "azure-pipelines-task-lib": "^4.0.0-preview",
+    "python-shell": "^3.0.1"
   }
 }
