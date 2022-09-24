@@ -5,6 +5,26 @@ Available here in preview on the VisualStudio Marketplace: https://marketplace.v
 ## About
 Azure DevOps task to use in your Azure DevOps pipelines to show the dependencies of those OTHER types of pipelines you have in Synapse!
 
+:warning: this task requires Python 3.8
+
+For example, in your Azure DevOps pipeline:
+```yml
+
+# this task is required for the synapse-graph-task to work!
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.8'
+    addToPath: true
+    architecture: 'x64'
+
+- task: synapse-graph-task@0
+  inputs:
+    workspace: 'my_synapse_ws'
+    synapseDirectory: '$(Build.SourcesDirectory)/synapse'
+    artifactStagingDirectory: '$(Build.ArtifactStagingDirectory)/synapsegraph'
+    itemTypes: 'Trigger, Pipeline, LinkedService, Dataset, Notebook, SparkJobDefinition, BigDataPool, IntegrationRuntime'
+```
+
 e.g. output:
 
 ```mermaid
@@ -50,6 +70,7 @@ end
 ## Todo
 But will probably never get around to it - so contributions welcome:
 
+- run the python code in a venv to prevent any potential conflicts
 - differentiated arrow colors to make clear various paths to primary pipelines, with dependencies for the same pipeline gradient-shaded
 - filtering based on Synapse/ADF virtual folder  (i.e. UI folders, properties.folder.name)
 - filtering based on annotations / displaying annotations and/or parameters (e.g. for linkedServices and datasets) on click or taking it further and show separate nodes for each differently parameterized LS/DS/PL objects
@@ -88,7 +109,9 @@ Be sure to run  ```tsc``` in PS to compile the task ts files to js first then:
 tfx extension create --manifest-globs vss-extension-manifest.json --rev-version
 ```
 
-:warning: This increments the PATCH version number of your extension and saves the new version to your manifest. You must rev BOTH the task version (in task.json) AND the extension version.
+:warning: This increments the PATCH version number of your extension and saves the new version to your manifest. You must rev BOTH the task version (in task.json) AND the extension version. todo: check if there's command to update task patch version as well
+
+todo: automate the above steps
 
 ### Publish to Marketplace
 

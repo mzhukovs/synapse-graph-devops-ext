@@ -3,9 +3,29 @@
 ## About
 Azure DevOps task to use in your Azure DevOps pipelines to show the dependencies of those OTHER types of pipelines you have in Synapse! This will help you visualize your pipelines, linked services, etc.
 
+:warning: this task requires Python 3.8
+
+For example, in your Azure DevOps pipeline:
+```yml
+
+# this task is required for the synapse-graph-task to work!
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.8'
+    addToPath: true
+    architecture: 'x64'
+
+- task: synapse-graph-task@0
+  inputs:
+    workspace: 'my_synapse_ws'
+    synapseDirectory: '$(Build.SourcesDirectory)/synapse'
+    artifactStagingDirectory: '$(Build.ArtifactStagingDirectory)/synapsegraph'
+    itemTypes: 'Trigger, Pipeline, LinkedService, Dataset, Notebook, SparkJobDefinition, BigDataPool, IntegrationRuntime'
+```
+
 e.g. output:
 
-```mermaid
+:::mermaid
 graph LR;
 
         classDef redBorder stroke:red,stroke-width:4px;
@@ -43,7 +63,7 @@ end
 11[["PL_GetEquity"]]:::blueBorder --> 2["DS_PARQUET_WRITE"]:::lightBlueBorder
 12[["PL_GetEquity_MAIN"]]:::blueBorder --> 11[["PL_GetEquity"]]:::blueBorder
 13>"DailyMidnightShedule"]:::greenBorder --> 12[["PL_GetEquity_MAIN"]]:::blueBorder
-```
+:::
 
 ## Filtering
 

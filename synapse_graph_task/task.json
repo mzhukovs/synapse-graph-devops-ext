@@ -14,12 +14,12 @@
     "version": {
         "Major": 0,
         "Minor": 90,
-        "Patch": 4
+        "Patch": 5
     },
     "instanceNameFormat": "Synapse Graph: $(workspace)",
     "groups": [
         {
-            "name": "filterOptions",
+            "name": "advanced",
             "displayName": "Advanced",
             "isExpanded": false
         }
