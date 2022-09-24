@@ -209,6 +209,9 @@ async function run() {
         const artifactStagingDirectory: string | undefined = tl.getPathInput('artifactStagingDirectory', true, false); // not checking if exists as we will create it if not
         const synapseDirectory: string | undefined = tl.getPathInput('synapseDirectory', true, true);
         const itemTypes: string[] | undefined = tl.getDelimitedInput('itemTypes', ",", true);
+        const mdTarget: string | undefined = tl.getInput('mdTarget', true);
+
+        // advanced options
         const includePipelineRegex: string[] | undefined = tl.getDelimitedInput('includePipelineRegex', "\n", false);
         const requirePathToPipelineRegex: string[] | undefined = tl.getDelimitedInput('requirePathToPipelineRegex', "\n", false);
         const excludeRegex: string[] | undefined = tl.getDelimitedInput('excludeRegex', "\n", false);
@@ -220,6 +223,7 @@ async function run() {
             "synapse_directory": synapseDirectory,
             "artifact_staging_directory": artifactStagingDirectory,
             "item_types": itemTypes,
+            "md_target": mdTarget,
             "include_pipeline_regex": includePipelineRegex,
             "require_path_to_pipeline_regex": requirePathToPipelineRegex,
             "exclude_regex": excludeRegex

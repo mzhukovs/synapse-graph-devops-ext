@@ -14,7 +14,7 @@
     "version": {
         "Major": 0,
         "Minor": 90,
-        "Patch": 5
+        "Patch": 6
     },
     "instanceNameFormat": "Synapse Graph: $(workspace)",
     "groups": [
@@ -56,6 +56,21 @@
             "defaultValue": "Trigger, Pipeline, LinkedService, Dataset, Dataflow, Notebook, SparkJobDefinition, BigDataPool, IntegrationRuntime, ManagedVirtualNetwork, ManagedPrivateEndpoint",
             "required": true,
             "helpMarkDown": "The comma-separated list of types of Synapse/ADF objects to include in the graph.\n\nUseful to reduce clutter - e.g. you may not care about Datasets, only which Pipelines hit which LinkedServices, or you may only want to see Triggers and Pipelines only, etc."
+        },
+        {
+            "name": "mdTarget",
+            "type": "pickList",
+            "label": "Markdown Target",
+            "defaultValue": "ADO",
+            "required": true,
+            "properties": {
+                "EditableOptions": "False"
+            },
+            "options": {
+                "ADO": "Azure DevOps",
+                "GH": "GitHub"
+            },
+            "helpMarkDown": "The flavor of mermaid markdown syntax to use for the resulting graph code."
         },
         {
             "name": "includePipelineRegex",

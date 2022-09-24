@@ -42,7 +42,7 @@ graph LR;
         classDef purpleBorder stroke:purple,stroke-width:4px;
         classDef grayBorder stroke:gray,stroke-width:4px;
         classDef grayFill stroke:gray,fill:gray,stroke-width:4px;
-    
+
 subgraph Legend
 direction RL;
 LegendTriggerStarted>"Trigger (started)"]:::greenBorder
@@ -50,6 +50,7 @@ LegendTriggerStopped>"Trigger (stopped)"]:::redBorder
 LegendPipeline[["Pipeline"]]:::blueBorder
 LegendLinkedService{{"LinkedService"}}:::purpleBorder
 LegendDataset["Dataset"]:::lightBlueBorder
+LegendBigDataPool[("BigDataPool")]:::orangeBorder
 LegendIntegrationRuntime("IntegrationRuntime"):::blueFill
 end
 0{{"WorkspaceDefaultStorage"}}:::purpleBorder --> 7("AutoResolveIntegrationRuntime"):::blueFill
@@ -63,7 +64,8 @@ end
 6{{"LS_Debts"}}:::purpleBorder --> 9("SelfHostedIntegrationRuntime"):::blueFill
 6{{"LS_Debts"}}:::purpleBorder --> 5["DS_Debts"]:::lightBlueBorder
 11[["PL_GetEquity"]]:::blueBorder --> 2["DS_PARQUET_WRITE"]:::lightBlueBorder
-12[["PL_GetEquity_MAIN"]]:::blueBorder --> 11[["PL_GetEquity"]]:::blueBorder
+11[["PL_GetEquity"]]:::blueBorder --> 14[\"NB_RunCalcs"\]:::yellowBorder
+14[\"NB_RunCalcs"\]:::yellowBorder  --> 15[("SparkClusterSmall")]:::orangeBorder
 13>"DailyMidnightShedule"]:::greenBorder --> 12[["PL_GetEquity_MAIN"]]:::blueBorder
 ```
 

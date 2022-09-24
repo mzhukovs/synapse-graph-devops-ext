@@ -205,8 +205,11 @@ def generate_graph():
         mermaid_edge = from_node + f" --> |{link_text}|" + to_node
         mermaid.append(mermaid_edge)
 
-    def get_mermaid_md(g: nx.DiGraph, layout: str = "LR") -> str:
-        mermaid_md = [":::mermaid"]
+    def get_mermaid_md(g: nx.DiGraph, layout: str = "LR", md_target: str = "GH") -> str:
+        begin_end_chars = (
+            ":::" if md_target == "ADO" else r"```"
+        )  # different syntax between Azure DevOps (ADO) and GitHub (GH) for mermaid charts
+        mermaid_md = [f"{begin_end_chars}mermaid"]
         mermaid_md.append(f"graph {layout};")
 
         # define css styles
@@ -302,7 +305,7 @@ def generate_graph():
 
             mermaid_md.append(mermaid_edge)
 
-        mermaid_md.append(":::")  # end mermaid graph definition
+        mermaid_md.append(begin_end_chars)  # end mermaid graph definition
         return "\n".join(mermaid_md)
 
     # endregion
@@ -311,6 +314,7 @@ def generate_graph():
     synapse_dir: str = inputs["synapse_directory"]
     output_dir: str = inputs["artifact_staging_directory"]
     item_types: List[str] = [itype.strip() for itype in inputs["item_types"]]
+    md_target = inputs["md_target"]
     include_pipeline_regex: List[str] or None = inputs["include_pipeline_regex"]
     require_path_to_pipeline_regex: List[str] or None = inputs[
         "require_path_to_pipeline_regex"
@@ -439,7 +443,7 @@ def generate_graph():
     DG.remove_edges_from([(u, v) for (u, v, w) in DG.edges.data("weight") if w <= 0])
     DG.remove_nodes_from(list(nx.isolates(DG)))
 
-    mermaid_md = get_mermaid_md(DG)
+    mermaid_md = get_mermaid_md(DG, graph_layout, md_target)
 
     filename = (
         f'{output_dir}/graph_{(str(datetime.now().strftime("%Y-%m-%d_%H-%M-%S")))}.md'
