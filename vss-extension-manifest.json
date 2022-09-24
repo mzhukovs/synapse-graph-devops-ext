@@ -2,17 +2,37 @@
     "manifestVersion": 1,
     "id": "synapse-graph-extension",
     "name": "Synapse Graph",
-    "version": "0.90.1",
+    "version": "0.90.3",
     "publisher": "mark-zhukovsky",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
+    "galleryFlags": [
+        "Preview"
+    ],
     "description": "Tools for building/releasing with Azure Synapse. Includes one pipeline task.",
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/mzhukovs/synapse-graph-devops-ext"
+    },
     "categories": [
         "Azure Pipelines"
     ],
+    "tags": [
+        "synapse",
+        "dependencies",
+        "graph"
+    ],
+    "content": {
+        "details": {
+            "path": "overview.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
+    },
     "icons": {
         "default": "images/synapse_graph_128.png"
     },

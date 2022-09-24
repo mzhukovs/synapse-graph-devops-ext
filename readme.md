@@ -1,5 +1,7 @@
 # Synapse Graph Azure DevOps Pipeline Task
 
+Available here in preview on the VisualStudio Marketplace: https://marketplace.visualstudio.com/items?itemName=mark-zhukovsky.synapse-graph-extension
+
 ## About
 Azure DevOps task to use in your Azure DevOps pipelines to show the dependencies of those OTHER types of pipelines you have in Synapse!
 
@@ -44,6 +46,14 @@ end
 12[["PL_GetEquity_MAIN"]]:::blueBorder --> 11[["PL_GetEquity"]]:::blueBorder
 13>"DailyMidnightShedule"]:::greenBorder --> 12[["PL_GetEquity_MAIN"]]:::blueBorder
 ```
+
+## Todo
+But will probably never get around to it - so contributions welcome:
+
+- differentiated arrow colors to make clear various paths to primary pipelines, with dependencies for the same pipeline gradient-shaded
+- filtering based on Synapse/ADF virtual folder  (i.e. UI folders, properties.folder.name)
+- filtering based on annotations / displaying annotations and/or parameters (e.g. for linkedServices and datasets) on click or taking it further and show separate nodes for each differently parameterized LS/DS/PL objects
+- tooltips with the descriptions for each artifact from Synapse (if available in github/ado mermaid markdown, or just switch to a proper library like AntV G6)
 
 ## Dev
 

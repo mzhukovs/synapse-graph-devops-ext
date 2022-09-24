@@ -209,9 +209,9 @@ async function run() {
         const artifactStagingDirectory: string | undefined = tl.getPathInput('artifactStagingDirectory', true, false); // not checking if exists as we will create it if not
         const synapseDirectory: string | undefined = tl.getPathInput('synapseDirectory', true, true);
         const itemTypes: string[] | undefined = tl.getDelimitedInput('itemTypes', ",", true);
-        const includePipelineRegex: string[] | undefined = tl.getDelimitedInput('includePipelineRegex', "\n", true);
-        const requirePathToPipelineRegex: string[] | undefined = tl.getDelimitedInput('requirePathToPipelineRegex', "\n", true);
-        const excludeRegex: string[] | undefined = tl.getDelimitedInput('excludeRegex', "\n", true);
+        const includePipelineRegex: string[] | undefined = tl.getDelimitedInput('includePipelineRegex', "\n", false);
+        const requirePathToPipelineRegex: string[] | undefined = tl.getDelimitedInput('requirePathToPipelineRegex', "\n", false);
+        const excludeRegex: string[] | undefined = tl.getDelimitedInput('excludeRegex', "\n", false);
 
         //#region Generate Synapse Graph outputs in staging directory via python
 
