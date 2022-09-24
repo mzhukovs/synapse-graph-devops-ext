@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "synapse-graph-extension",
     "name": "Synapse Graph",
-    "version": "0.90.3",
+    "version": "0.90.4",
     "publisher": "mark-zhukovsky",
     "targets": [
         {
@@ -10,6 +10,7 @@
         }
     ],
     "galleryFlags": [
+        "Public",
         "Preview"
     ],
     "description": "Tools for building/releasing with Azure Synapse. Includes one pipeline task.",
