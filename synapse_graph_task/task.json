@@ -14,7 +14,7 @@
     "version": {
         "Major": 0,
         "Minor": 90,
-        "Patch": 6
+        "Patch": 7
     },
     "instanceNameFormat": "Synapse Graph: $(workspace)",
     "groups": [

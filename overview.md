@@ -1,7 +1,9 @@
 # Synapse Graph Azure DevOps Pipeline Task
 
 ## About
-Azure DevOps task to use in your Azure DevOps pipelines to show the dependencies of those OTHER types of pipelines you have in Synapse! This will help you visualize your pipelines, linked services, etc.
+Azure DevOps task to use in your Azure DevOps pipelines to generate a graph to show the dependencies of those OTHER types of pipelines you have in Synapse! This will help you visualize your pipelines, linked services, etc.
+
+The graph markdown file will be published as a build artifact.
 
 :warning: this task requires Python 3.8
 
@@ -21,6 +23,7 @@ For example, in your Azure DevOps pipeline:
     synapseDirectory: '$(Build.SourcesDirectory)/synapse'
     artifactStagingDirectory: '$(Build.ArtifactStagingDirectory)/synapsegraph'
     itemTypes: 'Trigger, Pipeline, LinkedService, Dataset, Notebook, SparkJobDefinition, BigDataPool, IntegrationRuntime'
+    mdTarget: 'GH'
 ```
 
 ## Filtering
