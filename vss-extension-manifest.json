@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "synapse-graph-extension",
     "name": "Synapse Graph",
-    "version": "0.90.7",
+    "version": "0.90.8",
     "publisher": "mark-zhukovsky",
     "targets": [
         {
@@ -38,6 +38,7 @@
         "default": "images/synapse_graph_128.png"
     },
     "branding": {
+        "color": "rgb(116, 202, 231)",
         "theme": "dark"
     },
     "screenshots": [

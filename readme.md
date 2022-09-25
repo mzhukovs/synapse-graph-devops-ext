@@ -50,23 +50,23 @@ LegendTriggerStopped>"Trigger (stopped)"]:::redBorder
 LegendPipeline[["Pipeline"]]:::blueBorder
 LegendLinkedService{{"LinkedService"}}:::purpleBorder
 LegendDataset["Dataset"]:::lightBlueBorder
+LegendNotebook[\"Notebook"\]:::yellowBorder
 LegendBigDataPool[("BigDataPool")]:::orangeBorder
 LegendIntegrationRuntime("IntegrationRuntime"):::blueFill
 end
 0{{"WorkspaceDefaultStorage"}}:::purpleBorder --> 7("AutoResolveIntegrationRuntime"):::blueFill
 2["DS_PARQUET_WRITE"]:::lightBlueBorder --> 0{{"WorkspaceDefaultStorage"}}:::purpleBorder
 3["DS_Assets"]:::lightBlueBorder --> 11[["PL_GetEquity"]]:::blueBorder
-4{{"LS_Assets"}}:::purpleBorder --> 10{{"MyAzureKeyVault"}}:::purpleBorder
-4{{"LS_Assets"}}:::purpleBorder --> 9("SelfHostedIntegrationRuntime"):::blueFill
-4{{"LS_Assets"}}:::purpleBorder --> 3["DS_Assets"]:::lightBlueBorder
+4{{"LS_AccountAPI"}}:::purpleBorder --> 10{{"MyAzureKeyVault"}}:::purpleBorder
+4{{"LS_AccountAPI"}}:::purpleBorder --> 9("SelfHostedIntegrationRuntime"):::blueFill
+4{{"LS_AccountAPI"}}:::purpleBorder --> 3["DS_Assets"]:::lightBlueBorder
+4{{"LS_AccountAPI"}}:::purpleBorder --> 5["DS_Debts"]:::lightBlueBorder
 5["DS_Debts"]:::lightBlueBorder --> 11[["PL_GetEquity"]]:::blueBorder
-6{{"LS_Debts"}}:::purpleBorder --> 10{{"MyAzureKeyVault"}}:::purpleBorder
-6{{"LS_Debts"}}:::purpleBorder --> 9("SelfHostedIntegrationRuntime"):::blueFill
-6{{"LS_Debts"}}:::purpleBorder --> 5["DS_Debts"]:::lightBlueBorder
 11[["PL_GetEquity"]]:::blueBorder --> 2["DS_PARQUET_WRITE"]:::lightBlueBorder
 11[["PL_GetEquity"]]:::blueBorder --> 14[\"NB_RunCalcs"\]:::yellowBorder
 14[\"NB_RunCalcs"\]:::yellowBorder  --> 15[("SparkClusterSmall")]:::orangeBorder
 13>"DailyMidnightShedule"]:::greenBorder --> 12[["PL_GetEquity_MAIN"]]:::blueBorder
+12[["PL_GetEquity_MAIN"]]:::blueBorder --> 11[["PL_GetEquity"]]:::blueBorder
 ```
 
 ## Todo
